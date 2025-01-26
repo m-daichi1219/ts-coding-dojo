@@ -10,4 +10,8 @@ describe('シングルの計算', () => {
     const yahtzee = new Yahtzee([1, 2, 3, 4, 5, 6]);
     expect(yahtzee.score('twos')).toBe(2);
   });
+  it('さいころが1, 2, 3, 4, 5, 6の時、役3の目の場合3ポイントになること', () => {
+    const yahtzee = new Yahtzee([1, 2, 3, 4, 5, 6]);
+    expect(yahtzee.score('threes')).toBe(3);
+  });
 });
