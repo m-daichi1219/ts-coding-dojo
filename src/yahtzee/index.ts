@@ -5,7 +5,7 @@ class Yahtzee {
     this._dice = dice;
   }
 
-  score(role: 'ones' | 'twos' | 'threes' | 'fours'): number {
+  score(role: 'ones' | 'twos' | 'threes' | 'fours' | 'fives'): number {
     switch (role) {
       case 'ones':
         return this._dice.filter((d) => d === 1).length;
@@ -15,6 +15,8 @@ class Yahtzee {
         return this._dice.filter((d) => d === 3).length * 3;
       case 'fours':
         return this._dice.filter((d) => d === 4).length * 4;
+      case 'fives':
+        return this._dice.filter((d) => d === 5).length * 5;
       default:
         throw new Error('Invalid role');
     }
