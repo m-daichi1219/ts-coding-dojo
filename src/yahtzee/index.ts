@@ -5,8 +5,13 @@ class Yahtzee {
     this._dice = dice;
   }
 
-  get score(): number {
-    return 1;
+  score(role: 'ones'): number {
+    switch (role) {
+      case 'ones':
+        return this._dice.filter((d) => d === 1).length;
+      default:
+        throw new Error('Invalid role');
+    }
   }
 }
 
