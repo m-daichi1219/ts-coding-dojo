@@ -6,7 +6,15 @@ class Yahtzee {
   }
 
   score(
-    role: 'ones' | 'twos' | 'threes' | 'fours' | 'fives' | 'sixes' | 'pair',
+    role:
+      | 'ones'
+      | 'twos'
+      | 'threes'
+      | 'fours'
+      | 'fives'
+      | 'sixes'
+      | 'pair'
+      | 'two-pair',
   ): number {
     switch (role) {
       case 'ones':
@@ -24,6 +32,25 @@ class Yahtzee {
       case 'pair':
         const max = Math.max(...this._dice);
         return this._dice.filter((d) => d === max).length * max;
+      case 'two-pair':
+        const pairs = this._dice.reduce(
+          (acc, val) => {
+            acc[val] = (acc[val] || 0) + 1;
+            return acc;
+          },
+          {} as Record<number, number>,
+        );
+
+        const pairValues = Object.keys(pairs)
+          .filter((key) => pairs[Number(key)] >= 2)
+          .map(Number)
+          .sort((a, b) => b - a);
+
+        if (pairValues.length >= 2) {
+          return pairValues[0] * 2 + pairValues[1] * 2;
+        }
+
+        return 0;
       default:
         throw new Error('Invalid role');
     }

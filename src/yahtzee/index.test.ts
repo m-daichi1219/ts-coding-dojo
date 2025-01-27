@@ -44,5 +44,15 @@ describe('Yahtzeeのスコアを算出する Yahtzeeクラス', () => {
         expect(yahtzee.score('pair')).toBe(8);
       });
     });
+    describe('役ツーペアの計算', () => {
+      it('さいころが1, 1, 2, 3, 3の時、場合8ポイントになること', () => {
+        yahtzee = new Yahtzee([1, 1, 2, 3, 3]);
+        expect(yahtzee.score('two-pair')).toBe(8);
+      });
+      it('同じ数字のさいころが2組ない時、0ポイントになること', () => {
+        yahtzee = new Yahtzee([1, 2, 3, 4, 5, 6]);
+        expect(yahtzee.score('two-pair')).toBe(0);
+      });
+    });
   });
 });
