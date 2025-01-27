@@ -3,7 +3,7 @@ import Yahtzee from '.';
 
 describe('Yahtzeeのスコアを算出する Yahtzeeクラス', () => {
   let yahtzee: Yahtzee;
-  describe('シングルの計算', () => {
+  describe('scoreメソッド', () => {
     beforeEach(() => {
       yahtzee = new Yahtzee([1, 2, 3, 4, 5, 6]);
     });
@@ -38,8 +38,6 @@ describe('Yahtzeeのスコアを算出する Yahtzeeクラス', () => {
         expect(yahtzee.score('sixes')).toBe(6);
       });
     });
-  });
-  describe('ペアの計算', () => {
     describe('役ペアの計算', () => {
       it('さいころが3, 3, 3, 4, 4の時、場合8ポイントになること', () => {
         yahtzee = new Yahtzee([3, 3, 3, 4, 4]);
