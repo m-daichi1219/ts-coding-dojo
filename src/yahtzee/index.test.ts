@@ -41,13 +41,8 @@ describe('Yahtzeeのスコアを算出する Yahtzeeクラス', () => {
   });
   describe('ペアの計算', () => {
     describe('役ペアの計算', () => {
-      it('さいころが1, 1, 2, 2, 3, 3の時、6ポイントになること', () => {
-        yahtzee = new Yahtzee([1, 1, 2, 2, 3, 3]);
-        expect(yahtzee.score('pair')).toBe(6);
-      });
-
-      it('さいころが2, 2, 2, 2, 4, 4の時、8ポイントになること', () => {
-        yahtzee = new Yahtzee([2, 2, 2, 2, 4, 4]);
+      it('さいころが3, 3, 3, 4, 4の時、場合8ポイントになること', () => {
+        yahtzee = new Yahtzee([3, 3, 3, 4, 4]);
         expect(yahtzee.score('pair')).toBe(8);
       });
     });
