@@ -49,6 +49,10 @@ describe('Yahtzeeのスコアを算出する Yahtzeeクラス', () => {
         yahtzee = new Yahtzee([1, 1, 2, 3, 3]);
         expect(yahtzee.score('two-pair')).toBe(8);
       });
+      it('さいころが5, 5, 2, 6, 6の時、22ポイントになること', () => {
+        yahtzee = new Yahtzee([5, 5, 2, 6, 6]);
+        expect(yahtzee.score('two-pair')).toBe(22);
+      });
       it('同じ数字のさいころが2組ない時、0ポイントになること', () => {
         yahtzee = new Yahtzee([1, 2, 3, 4, 5, 6]);
         expect(yahtzee.score('two-pair')).toBe(0);
